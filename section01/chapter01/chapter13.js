@@ -1,41 +1,42 @@
-//콜백함수의 활용 
-function repeat(count, callback) {
-  for (let idx = 0; idx <= count; idx++) {
-    callback(idx);
-  }
-}
-//화살표함수
-repeat(5, (idx) => { console.log(idx); });
-repeat(5, (idx) => { console.log(idx * 2); });
-repeat(5, (idx) => { console.log(idx * 3); });
+// 1. 객체 생성
+let obj1 = new Object(); // 객체 생성자
+let obj2 = {};          // 객체 리터럴 (대부분 사용)
 
-console.log(indefined * 10);
+// 2. 객체 프로퍼티 (객체 속성)
+let person = {
+  name: "홍길동",
+  age: 30,
+  hobby: "축구",
+  job: "Developer",
+  extra: {},   //객체도 들어올수 있음
+  extra2: function () { },  //함수도 들어올수 있음
+  "like cat": true,  //한칸띄는 변수가 있으면 “” 
+};
 
-//콜백함수적용 함수선언, 함수표현, 화살표함수
-//함수선언문
-function repeat(count, callback) {
-  for (let index = 0; index < count; index++) {
-    //콜백함수를 진행한다
-    callback(index);
-  }
-}
+// 3. 객체 프로퍼티를 다루는 방법
+// 3.1 특정 프로퍼티에 접근 (점 표기법, 대괄호 표기법)
+let name = person.name;
+let age = person["age2"];  //존재하지 않는 변수가 나오면 undefind 저장한다.
 
-//함수표현식
-let funcA = function (index) {
-  console.log(index);
-}
-//함수표현식
-let funcB = function (index) {
-  console.log(index * 10);
-}
+let property = "hobby";
+let hobby = person[property];
 
-//함수표현식
-let funcC = function (index) {
-  console.log(index * 10 + 5);
-}
+// 3.2 새로운 프로퍼티를 추가하는 방법
+person.job = "fe developer";
+person["favoriteFood"] = "떡볶이";
+console.log(person);
 
-//let callback = funcA;
+// 3.3 프로퍼티를 수정하는 방법
+person.job = "educator";
+person["favoriteFood"] = "초콜릿";
+console.log(person);
 
-repeat(5, funcB);
+// 3.4 프로퍼티를 삭제하는 방법
+delete person.job;
+delete person["favoriteFood"];
+console.log(person);
 
-//callback(10);
+// 3.5 프로퍼티의 존재 유무를 확인하는 방법 (in 연산자)
+let result1 = "name" in person;
+let result2 = "cat" in person;
+console.log(result2);
