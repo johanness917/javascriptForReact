@@ -17,56 +17,23 @@ delete animal.color;
 // 삭제가능 
 //값이 함수인 프로퍼티를 말함 
 const person = {
-  name: "홍길동"
+  name: "홍길동",
+
+  // 1. 메서드 단축 구문 (가장 많이 씀)
+  sayHi() {
+    console.log("안녕!");
+  },
+
+  // 2. 익명 함수 (프로퍼티 키: function)
+  sayHi2: function () {
+    console.log("안녕2!");
+  },
+
+  // 3. 화살표 함수
+  sayHi3: () => {
+    console.log("안녕3!");
+  }
 };
-// 메서드 선언 
-sayHi(); {
-  console.log("안녕!");
-}
-//익명함수 가능 
-sayHi2: function () {
-  console.log("안녕2!");
-},
-//화살표함수 가능 
-sayHi3: () => {
-  console.log("안녕3!");
-}
 
 person.sayHi();
 person["sayHi"]();  //괄호표기법으로 함수 호출가능하다. 
-
-
-//상수객체
-const animal = {
-  //멤버변수
-  type: "고양이",
-  age: 2
-  //멤버함수
-};
-
-animal["age"] = 10;
-animal.color = "노란색";
-delete animal.age;
-animal.type = (index) => index = 10;
-
-let value = animal.type(10);
-console.log(`value = ${value}`)
-console.log(animal);
-
-const animal2 = {
-  name: "호랑이",
-  age: 10,
-  sayHi() {
-    console.log("안녕");
-  },
-  sayHi2: function () {
-    console.log("안녕2");
-  },
-  sayHi3: () => console.log("안녕3"),
-}
-
-console.log(animal2);
-animal2.sayHi();
-animal2.sayHi2();
-animal2.sayHi3();
-animal2["sayHi"()]
