@@ -5,11 +5,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="./chapter30.js"></script>
+  <script>
+    function onClick1() {
+      const $ul = document.getElementById("ul");
+
+      for (let i = 0; i < 500; i++) {
+        $ul.innerHTML = $ul.innerHTML + `<li>${i}</li>`;
+      }
+
+    }
+
+    function onClick2() {
+      const $ul = document.getElementById("ul");
+      let listValue = "";
+      for (let i = 0; i < 500; i++) {
+        listValue = listValue + `<li>${i}</li>`;
+      }
+      $ul.innerHTML = listValue;
+    }
+
+  </script>
 </head>
 
 <body>
   <h2 on>안녕하세요</h2>
+  <button type="button" onclick="onClick1()">리스트추가하기(실제돔)</button>
+  <button type="button" onclick="onClick2()">리스트추가하기(가상돔)</button>
+  <ul id="ul"></ul>
 </body>
 
 </html>
