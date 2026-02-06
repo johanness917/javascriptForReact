@@ -1,7 +1,7 @@
 //내장함수 (라이프러리) (반복문=>자기스타일로 변경 반복문)
 // foreach 멤버함수 (화살표함수)
-const arr = [1, 2, 3, 4];
 /************ 1. foreach **************** 
+ const arr = [1, 2, 3, 4];
 for (let i = 0; i < array.length; i++) {
   console.log(array[i]);
 }
