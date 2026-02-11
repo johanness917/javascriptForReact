@@ -3,7 +3,7 @@ import Header from './components/Header'
 import Editor from './components/Editor'
 import List from './components/List'
 import './css/App.css'
-import { useState, useRef, useReducer } from 'react'
+import { useState, useRef, useReducer, useCallback } from 'react'
 import Exam from './components/Exsam'
 
 //전역변수
@@ -48,40 +48,36 @@ function reducer(state, action) {
 }
 function App() {
   //const [todos, setTodos] = useState(mockData)
+  const [count, setCount] = useState(10);
   const [todos, dispatch] = useReducer(reducer, mockData)
   const idRef = useRef(3);
 
   //이벤트함수(setTodos 생성)
-  const onCreate = (content) => {
+  const onCreate = useCallback((content) => {
     dispatch({
       type: "CREATE",
       data: {
-        id: idRef.current++, // 현재 id 값 사용
+        id: idRef.current++,
         isDone: false,
         content: content,
         date: new Date().getTime(),
-      }
-    });
-  };
+      }, // 1. data 객체 닫기
+    });  // 2. dispatch 함수 닫기
+  }, []); // 3. useCallback 닫기 및 의존성 배열
+
   // 이벤트함수(setTodos 수정)
-  const onUpdate = (id) => {
-    dispatch({
-      type: "UPDATE",
-      targetId: id
-    });
-  }
+  const onUpdate = useCallback((id) => {
+    dispatch({ type: "UPDATE", targetId: id });
+  }, [])
   //이벤트함수(setTodo)
-  const onDelete = (id) => {
-    dispatch({
-      type: "DELETE",
-      targetId: id
-    });
-  }
+  const onDelete = useCallback((id) => {
+    dispatch({ type: "DELETE", targetId: id });
+  }, [])
 
   return (
     <>
       <div className="App">
-        <Header />
+        <Header count={count} />
         <Exam />
         <Editor onCreate={onCreate} />
         <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
