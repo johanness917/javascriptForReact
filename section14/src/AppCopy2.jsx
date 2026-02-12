@@ -1,0 +1,46 @@
+import { Route, Routes } from 'react-router-dom'
+import './App.css'
+import Home from './components/Home'
+import New from './components/New'
+import Diary from './components/Diary'
+import Edit from './components/Edit'
+import NotFound from './components/NotFound'
+import { getEmotionImage } from './util/getEmotionImage'
+
+
+function App() {
+
+  return (
+    <>
+      {/* 공통부분 */}
+      <h2>public img</h2>
+      <img src="/emotion11.png"></img>
+      <img src="/emotion12.png"></img>
+      <img src="/emotion13.png"></img>
+      <img src="/emotion14.png"></img>
+      <img src="/emotion15.png"></img><br />
+      <h2>assets img</h2>
+      <img src={getEmotionImage(1)} />
+      <img src={getEmotionImage(2)} />
+      <img src={getEmotionImage(3)} />
+      <img src={getEmotionImage(4)} />
+      <img src={getEmotionImage(5)} /><br />
+
+      <img src="./src/assets/emotion1.png" />
+      <img src="./src/assets/emotion2.png" />
+      <img src="./src/assets/emotion3.png" />
+      <img src="./src/assets/emotion4.png" />
+      <img src="./src/assets/emotion5.png" />
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/new/:id' element={<New />} />
+        <Route path='/diary' element={<Diary />} />
+        <Route path='/edit' element={<Edit />} />
+        <Route path='/*' element={<NotFound />} />
+      </Routes>
+    </>
+  )
+}
+
+export default App

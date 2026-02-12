@@ -1,0 +1,42 @@
+.DiaryItem {
+  display: flex;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgb(236, 236, 236);
+  align-items: center; /* 아이템들을 세로 중앙에 정렬 */
+}
+
+.DiaryItem .img_section {
+  min-width: 120px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 이미지도 영역 내 중앙 정렬 */
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #ececec; /* 배경색이 있으면 위치 확인이 쉬워요 */
+}
+
+.DiaryItem .img_section > img {
+  width: 50%;
+}
+
+.DiaryItem .info_section {
+  flex: 1; /* 중간 영역이 남은 공간을 다 차지함 -> 버튼을 오른쪽 끝으로 밀어냄 */
+  cursor: pointer;
+  text-align: left;
+}
+
+.DiaryItem .info_section .created_date {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.DiaryItem .info_section .content {
+  font-size: 18px;
+}
+
+.DiaryItem .button_section {
+  min-width: 70px;
+}
