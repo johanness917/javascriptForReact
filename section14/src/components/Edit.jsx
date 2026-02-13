@@ -1,13 +1,10 @@
-import { useState } from "react";
-import { useSearchParams, useParams } from "react-router-dom";
-import Header from "./Header";
-import Button from "./Button";
+import { useParams } from "react-router-dom";
 
 const Edit = () => {
   const params = useParams();
 
   return <>
-    <h1>{params.id} Edit </h1>
+    <h1>{params.id}Edit</h1>
   </>
 
 }

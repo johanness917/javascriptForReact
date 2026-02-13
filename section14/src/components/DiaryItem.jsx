@@ -21,7 +21,7 @@ const DiaryItem = ({ id, emotionId, createdDate, content }) => {
       </div>
 
       <div className="button_section">
-        <Button text={"수정하기"} onClick={() => nav(`/edit/$id`)} />
+        <Button text={"수정하기"} onClick={() => nav(`/edit/${id}`)} />
       </div>
     </div>
   );

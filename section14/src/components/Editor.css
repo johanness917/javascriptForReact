@@ -1,0 +1,43 @@
+.Editor > section { 
+  margin-bottom: 40px; 
+} 
+  
+.Editor > section > h4 { 
+  font-size: 22px; 
+  font-weight: bold; 
+} 
+
+/* 1. 공통 스타일에서 input을 분리하거나 아래에서 width를 덮어씌워야 합니다 */
+.Editor > section > input, 
+.Editor > section > textarea { 
+  background-color: rgb(236, 236, 236); 
+  border: none; 
+  border-radius: 5px; 
+  font-size: 20px; 
+  padding: 10px 20px; 
+  box-sizing: border-box;
+} 
+
+/* 2. 날짜 입력창만 너비를 글자수에 맞게(fit-content) 조절 */
+.Editor > section > input {
+  width: fit-content; 
+  cursor: pointer;
+}
+
+/* 3. 일기 입력창은 그대로 100% 유지 */
+.Editor > section > textarea { 
+  width: 100%;
+  min-height: 200px; 
+  resize: vertical; 
+} 
+  
+.Editor .emotion_list_wrapper { 
+  display: flex; 
+  justify-content: space-around; 
+  gap: 10px; 
+} 
+  
+.Editor .button_section { 
+  display: flex; 
+  justify-content: space-between; 
+}
