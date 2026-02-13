@@ -1,10 +1,9 @@
 import Header from "./Header";
 import Button from "./Button";
-import Editor from "./Editor";
-import { useNavigate } from "react-router-dom"; // replace는 nav 인자로 씁니다
+import Editor from "./Editor"; // ← 여기에 중괄호 { } 가 절대 없어야 합니다!
+import { useNavigate } from "react-router-dom";
 import { DiaryDispatchContext } from "../App";
 import { useContext } from "react";
-
 const New = () => {
   const { onCreate } = useContext(DiaryDispatchContext);
   const nav = useNavigate(); // 1. useNavigate() 실행괄호 필수!

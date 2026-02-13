@@ -1,22 +1,91 @@
 .EmotionItem {
+  background-color: #ececec; /* 기본 배경색 */
+  padding: 20px;
+  border-radius: 5px;
   cursor: pointer;
-  z-index: 10; /* 다른 요소보다 위에 오도록 */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
-.EmotionItem { 
-  background-color: rgb(236, 236, 236); 
-  padding: 20px; 
-  border-radius: 5px; 
-  cursor: pointer; 
-  text-align: center; 
-} 
- 
-.EmotionItem .emotion_img { 
-  width: 50%; 
-  margin-bottom: 10px; 
-} 
+.EmotionItem .emotion_img {
+  width: 50%;
+  margin-bottom: 10px;
+}
 
-.EmotionItem_on { 
-  color: white; 
-  background-color: rgb(155, 205, 252); 
-} 
+/* 선택되었을 때 글자색 공통 설정 */
+.EmotionItem_on_1, .EmotionItem_on_2, .EmotionItem_on_3, .EmotionItem_on_4, .EmotionItem_on_5 {
+  color: white;
+}
+
+/* 1번: 완전 좋음 (초록) - !important를 써서 우선순위를 확실히 높여줌 */
+.EmotionItem.EmotionItem_on_1 {
+  background-color: #64c964 !important;
+}
+
+/* 2번: 좋음 (연두) */
+.EmotionItem.EmotionItem_on_2 {
+  background-color: #9dd772 !important;
+}
+
+/* 3번: 그럭저럭 (노랑) */
+.EmotionItem.EmotionItem_on_3 {
+  background-color: #fdce17 !important;
+}
+
+/* 4번: 나쁨 (주황) */
+.EmotionItem.EmotionItem_on_4 {
+  background-color: #fd8446 !important;
+}
+
+/* 5번: 끔찍함 (빨강) */
+.EmotionItem.EmotionItem_on_5 {
+  background-color: #fd565f !important;
+}
+
+.EmotionItem {
+  /* ... 기존 속성들 ... */
+  background-color: #ececec;
+  padding: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+
+  /* ★ 추가: 애니메이션을 부드럽게 만들기 위한 설정 (0.2초 동안 변화) */
+  transition: all 0.2s ease-in-out; 
+}
+
+/* 마우스를 올렸을 때(Hover) 살짝 커짐 */
+.EmotionItem:hover {
+  transform: scale(1.1); /* 1.1배 커짐 */
+}
+
+/* 선택되었을 때(Selected) 살짝 커진 상태 유지 */
+.EmotionItem.EmotionItem_on_1,
+.EmotionItem.EmotionItem_on_2,
+.EmotionItem.EmotionItem_on_3,
+.EmotionItem.EmotionItem_on_4,
+.EmotionItem.EmotionItem_on_5 {
+  transform: scale(1.1); /* 선택된 아이콘은 커진 상태 유지 */
+  color: white;
+  /* !important 없이도 클래스를 두 개 붙여서 우선순위를 높임 */
+}
+
+/* 실제 색상 적용 (기존 코드 유지) */
+.EmotionItem.EmotionItem_on_1 { background-color: #64c964; }
+.EmotionItem.EmotionItem_on_2 { background-color: #9dd772; }
+.EmotionItem.EmotionItem_on_3 { background-color: #fdce17; }
+.EmotionItem.EmotionItem_on_4 { background-color: #fd8446; }
+.EmotionItem.EmotionItem_on_5 { background-color: #fd565f; }
+
+.EmotionItem:hover, .EmotionItem[class*="EmotionItem_on_"] {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 추가 */
+}
